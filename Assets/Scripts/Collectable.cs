@@ -8,6 +8,8 @@ public class Collectable : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
 
+    private static int coinCount;
+
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -19,6 +21,8 @@ public class Collectable : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
+            coinCount++;
+            Debug.Log("Coin count: " + coinCount);
             audioSource.Play();
             spriteRenderer.enabled = false;
             boxCollider2D.enabled = false;
